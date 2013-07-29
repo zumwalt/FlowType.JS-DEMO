@@ -1,0 +1,1 @@
+(function(e){e.fn.reallyFluidType=function(t){function o(){n.css({"font-size":i+"px","line-height":s+"px"})}var n=e(this),r=e(window).width(),i=r/35,s=i*1.45;o();e(window).resize(function(){function s(){n.css({"font-size":r+"px","line-height":i+"px"})}var t=e(window).width(),r=t/35,i=r*1.45;s()})}})(jQuery);
