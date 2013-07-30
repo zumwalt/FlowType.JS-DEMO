@@ -1,13 +1,33 @@
 (function($) {
    $.fn.reallyFluidType = function( options ) {
 
-      // Set on page load
-
+   // Establish default settings
+      var settings = $.extend({
+         maximum   : 1800,
+         minimum   : 550,
+         fontRatio : 35,
+         lineRatio : 1.45
+      }, options);
       var $element = $(this);
-      var $width = $(window).width();
-      var $fontSize = $width / 35;
-      var $lineHeight = $fontSize * 1.45;
 
+
+// Set on page load
+// ================
+
+   // Set max and min thresholds
+      if ( $(window).width() > settings.maximum ) {
+         var $width = settings.maximum;
+      } else if ( $(window).width() < settings.minimum ) {
+         var $width = settings.minimum;
+      } else {
+         var $width = $(window).width();
+      }
+
+   // Do the math
+      var $fontSize = $width / settings.fontRatio;
+      var $lineHeight = $fontSize * settings.lineRatio;
+
+   // Make CSS "changes"
       function changes() {
          $element.css({
             'font-size':$fontSize + 'px',
@@ -15,15 +35,29 @@
          });
       }
 
+   // Run CSS "changes"
       changes();
 
-      // Update on resize
-      $(window).resize(function(){
 
-         var $width = $(window).width();
-         var $fontSize = $width / 35;
-         var $lineHeight = $fontSize * 1.45;
 
+// Update on resize
+// ================
+      $(window).resize(function() {
+
+      // Set max and min thresholds
+         if ( $(window).width() > settings.maximum ) {
+            var $width = settings.maximum;
+         } else if ( $(window).width() < settings.minimum ) {
+            var $width = settings.minimum;
+         } else {
+            var $width = $(window).width();
+         }
+
+      // Do the math
+         var $fontSize = $width / settings.fontRatio;
+         var $lineHeight = $fontSize * settings.lineRatio;
+
+      // Make CSS "changes"
          function changes() {
             $element.css({
                'font-size':$fontSize + 'px',
@@ -31,7 +65,9 @@
             });
          }
 
+      // Run CSS "changes"
          changes();
+
       });
       
    };
