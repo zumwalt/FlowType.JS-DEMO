@@ -1,5 +1,11 @@
+/*   
+* FlowType.JS 1.0
+* Copyright 2013, John Wilson http://j-wilson.com/
+* July 2013
+*/
+
 (function($) {
-   $.fn.reallyFluidType = function( options ) {
+   $.fn.flowtype = function( options ) {
 
    // Establish default settings
       var settings = $.extend({
@@ -15,12 +21,12 @@
 // ================
 
    // Set max and min thresholds
-      if ( $(window).width() > settings.maximum ) {
+      if ( $element.width() > settings.maximum ) {
          var $width = settings.maximum;
-      } else if ( $(window).width() < settings.minimum ) {
+      } else if ( $element.width() < settings.minimum ) {
          var $width = settings.minimum;
       } else {
-         var $width = $(window).width();
+         var $width = $element.width();
       }
 
    // Do the math
@@ -45,12 +51,12 @@
       $(window).resize(function() {
 
       // Set max and min thresholds
-         if ( $(window).width() > settings.maximum ) {
+         if ( $element.width() > settings.maximum ) {
             var $width = settings.maximum;
-         } else if ( $(window).width() < settings.minimum ) {
+         } else if ( $element.width() < settings.minimum ) {
             var $width = settings.minimum;
          } else {
-            var $width = $(window).width();
+            var $width = $element.width();
          }
 
       // Do the math

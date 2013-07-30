@@ -86,3 +86,8 @@ h1 {
   font-size: 4em;
   line-height: 1em;
   margin: 5% 0; }
+
+/* line 67, ../sass/app.scss */
+.demo-width {
+  float: left;
+  width: 50%; }
