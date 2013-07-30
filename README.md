@@ -6,13 +6,11 @@ Really Fluid Type
 **Update!** Really Fluid Type now has options! Simply include the ``reallyFluidType.jQuery.js`` plugin and call the function before the close of the body tag:
 
 ```
-$(window).ready(function(){
-   $('body').reallyFluidType({
-      maximum   : 1800,
-      minimum   : 550,
-      fontRatio : 35,
-      lineRatio : 1.45
-   });
+$('body').flowtype({
+   maximum   : 1800,
+   minimum   : 550,
+   fontRatio : 35,
+   lineRatio : 1.45
 });
 ```
 
