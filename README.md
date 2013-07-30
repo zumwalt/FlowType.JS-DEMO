@@ -36,15 +36,15 @@ h1 {
    font-size: 4em;
    line-height: 1em;
 }
-h1 {
+h2 {
    font-size: 3em;
    line-height: 1em;
 }
-h1 {
+h3 {
    font-size: 2em;
    line-height: 1em;
 }
-h1 {
+h4 {
    font-size: 1.2em;
    line-height: 1em;
 }
