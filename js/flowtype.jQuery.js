@@ -7,10 +7,13 @@
 (function($) {
    $.fn.flowtype = function( options ) {
 
-   // Establish default settings
+// Establish default settings/variables
+// ====================================
       var settings = $.extend({
-         maximum   : 1800,
-         minimum   : 550,
+         maximum   : 9999,
+         minimum   : 1,
+         maxFont   : 9999,
+         minFont   : 1,
          fontRatio : 35,
          lineRatio : 1.45
       }, options);
@@ -29,8 +32,19 @@
          var $width = $element.width();
       }
 
-   // Do the math
-      var $fontSize = $width / settings.fontRatio;
+   // Do the magic math
+      var $fontBase = $width / settings.fontRatio;
+
+   // Set max and min font-size
+      if ( $fontBase > settings.maxFont ) {
+         var $fontSize = settings.maxFont;
+      } else if ( $fontBase < settings.minFont ) {
+         var $fontSize = settings.minFont;
+      } else {
+         var $fontSize = $fontBase;
+      }
+
+   // Do more math
       var $lineHeight = $fontSize * settings.lineRatio;
 
    // Make CSS "changes"
@@ -59,8 +73,19 @@
             var $width = $element.width();
          }
 
-      // Do the math
-         var $fontSize = $width / settings.fontRatio;
+      // Do the magic math
+         var $fontBase = $width / settings.fontRatio;
+
+      // Set max and min font-size
+         if ( $fontBase > settings.maxFont ) {
+            var $fontSize = settings.maxFont;
+         } else if ( $fontBase < settings.minFont ) {
+            var $fontSize = settings.minFont;
+         } else {
+            var $fontSize = $fontBase;
+         }      
+
+      // Do more math
          var $lineHeight = $fontSize * settings.lineRatio;
 
       // Make CSS "changes"
